@@ -1,10 +1,12 @@
 import Input from "./components/Input";
 import Button from "./components/Button";
+import Container from "./components/Container";
 
 function App() {
   return (
     <main>
-      <Input type="text" label="name" id="name" />
+      <Container as={Button}>Click</Container>
+      {/* <Input type="text" label="name" id="name" />
       <Input type="number" label="your age" id="age" />
 
       <p>
@@ -15,7 +17,7 @@ function App() {
         <Button href="https://google.com" target="_blank">
           A Link
         </Button>
-      </p>
+      </p> */}
     </main>
   );
 }
