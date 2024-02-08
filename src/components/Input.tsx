@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, HTMLInputTypeAttribute } from "react";
+import {
+  ComponentPropsWithoutRef,
+  HTMLInputTypeAttribute,
+  forwardRef,
+} from "react";
 
 type InputProps = {
   type: HTMLInputTypeAttribute;
@@ -6,11 +10,16 @@ type InputProps = {
   id: string;
 } & ComponentPropsWithoutRef<"input">;
 
-export default function Input({ type, label, id, ...props }: InputProps) {
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  { type, label, id, ...props },
+  ref
+) {
   return (
     <p>
       <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} {...props} />
+      <input type={type} id={id} {...props} ref={ref} />
     </p>
   );
-}
+});
+
+export default Input;
