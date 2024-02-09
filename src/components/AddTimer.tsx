@@ -12,6 +12,11 @@ export default function AddTimer() {
 
   function handleSaveTimer(data: unknown) {
     const extractedData = data as { name: string; duration: string };
+
+    if (extractedData.name === "" || extractedData.duration === "") {
+      throw new Error("All fields are mandatory");
+    }
+
     console.log(extractedData);
     addTimer({
       name: extractedData.name,
